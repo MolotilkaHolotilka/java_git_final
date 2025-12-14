@@ -1,17 +1,30 @@
 package org.example;
-
+import java.util.*;
+import java.util.random.RandomGenerator;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how OpenIDE suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Глобальные переменные
+        Integer countOfAttempts = 0;
+        // Загадывание числа
+        Random random = new Random();
+        Integer randInt = random.nextInt(100);
+        // Цикл ввода числа. Условие остановки - inp == randInt
+        // Чтение числа пользователя
+        Scanner in = new Scanner(System.in);
+        Integer inp = 101;
+        while(inp != randInt){
+            countOfAttempts++; // Сразу инициализируем попытку, как первая
+            System.out.println("Введите число: ");
+            inp = in.nextInt();
+            if(inp < randInt){
+                System.out.println("Больше");
+            } else if (inp > randInt) {
+                System.out.println("Меньше");
+            }
         }
+        System.out.println("Ура, число угадано!");
+        System.out.println("Число попыток: " + countOfAttempts);
     }
 }
