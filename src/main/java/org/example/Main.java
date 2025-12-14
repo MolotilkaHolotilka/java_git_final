@@ -5,6 +5,8 @@ import java.util.random.RandomGenerator;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        Boolean playAgain = true;
+        while(playAgain == true){
         // Глобальные переменные
         Integer countOfAttempts = 0;
         // Загадывание числа
@@ -26,5 +28,11 @@ public class Main {
         }
         System.out.println("Ура, число угадано!");
         System.out.println("Число попыток: " + countOfAttempts);
-    }
+        System.out.println("Сыграть ещё раз? (y/n) ");
+        in.nextLine(); // очистка после nextInt
+        String choice = in.nextLine();
+
+        playAgain = choice.trim().equalsIgnoreCase("y");
+
+    }}
 }
